@@ -22,7 +22,8 @@ const middleware = (req , res , next) =>{
 app.get('/', async (req, res)=> {
     let user = []
     await User.find().then(data => user = data).catch(err => console.error(err))
-    res.json(user)
+    // res.json(user)
+    res.send("hello home")
 });
 
 app.get('/about ', middleware, (req, res)=>{
