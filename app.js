@@ -5,12 +5,11 @@ const app = express();
 
 app.use(express.json())
 
+dotenv.config({path: './config.env'});
+require('./DB/conn');
+
 const User = require('./models/userSchema');
 
-const uri = "mongodb+srv://admin-suryansh:suryanshpanwar@cluster0.snk5b.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true})
-.then(() => console.log(`mongoose connected`))
-.catch(err => console.error(err))
 
 
 //middleware to check if the previous page that is required is visitd or
